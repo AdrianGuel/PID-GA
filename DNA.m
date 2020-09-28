@@ -16,25 +16,13 @@ classdef DNA
             child=DNA(length(PartnerA.genes),0.0,1,1);
             for i=1:length(PartnerA.genes)
                 if PartnerA.fitness>PartnerB.fitness
-                    if PartnerA.genes(i)>PartnerB.genes(i)
                         a=PartnerB.genes(i)-alpha*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
                         b=PartnerA.genes(i)+beta*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
                         child.genes(i)=a+(b-a)*rand;
-                    else
-                        a=PartnerA.genes(i)-beta*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
-                        b=PartnerB.genes(i)+alpha*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
-                        child.genes(i)=a+(b-a)*rand;                       
-                    end
                 else
-                    if PartnerA.genes(i)>PartnerB.genes(i)
                         a=PartnerB.genes(i)-beta*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
                         b=PartnerA.genes(i)+alpha*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
                         child.genes(i)=a+(b-a)*rand;
-                    else
-                        a=PartnerA.genes(i)-alpha*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
-                        b=PartnerB.genes(i)+beta*(abs(PartnerA.genes(i)-PartnerB.genes(i)));
-                        child.genes(i)=a+(b-a)*rand;                       
-                    end
                 end
             end
         end
