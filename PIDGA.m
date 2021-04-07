@@ -56,7 +56,8 @@ end
 
 
 Elapsetime=toc(timerVal);
-[RMSE,t,y,unitstep]=response(population(idx).genes);
+k=population(idx).genes;
+[RMSE,t,y,unitstep]=response(k);
 
 figure
 plot(t,unitstep,t,y)
